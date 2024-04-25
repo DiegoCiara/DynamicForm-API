@@ -1,9 +1,10 @@
 // mocks
-import { companies, member, workout, exercice, contacts, partners, contracts, pipelines, deals, deals2, deals3, deals4, goal, automations , mailers, funnels, convenios, product, evaluation } from './dataMock';
+import { companies, member, workout, exercice, contacts, partners, contracts, typeforms, deals, deals2, deals3, deals4, goal, automations , mailers, funnels, convenios, product, evaluation } from './dataMock';
 import Product from '@entities/Product';
 import User from '@entities/User';
 import bcrypt from 'bcryptjs';
 import Members from '@entities/Member';
+import Typeforms from '@entities/TypeForm';
 
 const mocks = async (): Promise<void> => {
   try {
@@ -32,6 +33,16 @@ const mocks = async (): Promise<void> => {
         console.log(`Canal ${product.name}, de id: ${newProduct.id} criada`);
       }
       console.log('companies ok');
+    }
+
+    if (!(await Typeforms.findOne({ name: 'Product' }))) {
+      for (const form of typeforms) {
+        // Armazena o objeto criado em uma variável
+        const newform = await Typeforms.create({ ...form }).save();
+        // Acessa a propriedade id do objeto
+        console.log(`Model ${form.name}, de id: ${newform.id} criada`);
+      }
+      console.log('form ok');
     }
     
 

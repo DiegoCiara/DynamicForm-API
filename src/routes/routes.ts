@@ -3,6 +3,7 @@ import Router from 'express';
 import MemberAuthRoutes from './memberauth.routes';
 import AuthRoutes from './auth.routes';
 import ProductRoutes from './product.routes';
+import TypeformRoutes from './typeforms.routes';
 import MemberRoutes from './member.routes';
 import UserRoutes from './user.routes';
 
@@ -17,6 +18,7 @@ routes.use('/member-auth', MemberAuthRoutes);
 routes.use('/auth', AuthRoutes);
 routes.use('/user', UserRoutes);
 routes.use('/member', MemberRoutes);
-routes.use('/product', ProductRoutes); 
+routes.use('/registration', ProductRoutes); 
+routes.use('/model', TypeformRoutes); 
 
 export default routes;

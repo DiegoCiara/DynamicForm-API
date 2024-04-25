@@ -1,22 +1,20 @@
 import { BaseEntity, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
-class Products extends BaseEntity {
+class Typeforms extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   name: string;
 
-  @Column({ nullable: true })
-  description: string;
-
   @Column({ type: 'jsonb', nullable: true })
   aditionals: Array<{
+    id: string;
+    type: string;
     label: string;
-    value: string;
+    createdAt: Date;
   }>;
-  
 
   @CreateDateColumn()
   createdAt: Date;
@@ -28,4 +26,4 @@ class Products extends BaseEntity {
   deletedAt: Date;
 }
 
-export default Products;
+export default Typeforms;
